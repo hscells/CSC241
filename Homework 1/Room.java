@@ -17,13 +17,17 @@ public class Room{
          a.setRoom(this);
          animals[num_animals] = a;
          num_animals++;
+      } else{
+
+         System.out.println("The room is full.");
+
       }
 
    }
 
    public String toString(){
 
-      String names = name + "\n";
+      String names = "Room " + name + "\n";
       names += "----------\n";
       for(int i = 0; i < num_animals; i++){
          names += " - " + animals[i].toString() + "\n";
