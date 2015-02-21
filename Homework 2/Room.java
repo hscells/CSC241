@@ -21,12 +21,12 @@ public class Room{
    }
 
 
-   public Boolean addCreature(Creature a){
+   public Boolean addCreature(Creature c){
 
       if (num_creatures < 10){
 
-         a.setRoom(this);
-         creatures[num_creatures] = a;
+         c.setRoom(this);
+         creatures[num_creatures] = c;
          num_creatures++;
          return true;
 
