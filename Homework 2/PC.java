@@ -14,7 +14,7 @@ public class PC extends Creature{
 
    }
 
-   public int setResepect(int r){
+   public void setResepect(int r){
 
       respect = r;
 
