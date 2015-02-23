@@ -20,7 +20,11 @@ public class Room{
 
    }
 
-
+   /**
+    * Adds a creature to the Room
+    * @param  c A creature
+    * @return   True if creature added False if room was full
+    */
    public Boolean addCreature(Creature c){
 
       if (num_creatures < 10){
@@ -39,6 +43,11 @@ public class Room{
 
    }
 
+   /**
+    * Remove creature from Room
+    * @param  c A creature
+    * @return   True if creature was removed, False if it failed
+    */
    public Boolean removeCreature(Creature c){
 
       int index = -1;
@@ -66,19 +75,29 @@ public class Room{
 
    }
 
-
+   /**
+    * Sets the state of the Room
+    * @param s State of the room
+    */
    public void setState(String s){
 
       state = s;
 
    }
 
+   /**
+    * Gets the state of the Room
+    * @return the state of the room
+    */
    public String getState(){
 
       return state;
 
    }
 
+   /**
+    * Notify all animals in the room of a state change
+    */
    public void notifyAnimals(){
 
       for(int i = 0; i < num_creatures; i++){
@@ -87,6 +106,10 @@ public class Room{
 
    }
 
+   /**
+    * Override method to print out the room name and animals in it
+    * @return A formatted string of the room and animals in it
+    */
    public String toString(){
 
       String names = "Room " + name + "\n";
