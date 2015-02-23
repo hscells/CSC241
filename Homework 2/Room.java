@@ -59,9 +59,8 @@ public class Room{
          return false;
 
       }
-
-      creatures[index] = creatures[num_creatures];
-      creatures[num_creatures] = null;
+      creatures[index] = creatures[num_creatures-1];
+      creatures[num_creatures-1] = null;
       num_creatures--;
       return true;
 

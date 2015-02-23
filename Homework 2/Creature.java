@@ -13,15 +13,24 @@ public class Creature{
 
    public void setRoom(Room r){
 
-      if (r != null){
+      room = r;
 
-         room.removeCreature(this);
+   }
+
+   public void moveRoom(Room r){
+
+      if (room == null){
+
+         System.out.println("This creature has no room.");
 
       } else {
 
-         room = r;
+         room.removeCreature(this);
+         r.addCreature(this);
 
       }
+
+
 
    }
 
