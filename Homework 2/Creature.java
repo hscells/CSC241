@@ -84,7 +84,7 @@ public class Creature{
     * Receive a notification and act upon it
     * @param s A state
     */
-   public void notify(String s){
+   public void notifyAnimal(String s){
 
       // act upon the state change
 
