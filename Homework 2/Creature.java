@@ -82,6 +82,8 @@ public class Creature{
 
    /**
     * Receive a notification and act upon it
+    * When a creature receives a notification, it will have some logic that
+    * needs to be implemented which it will do.
     * @param s A state
     */
    public void notifyAnimal(String s){
