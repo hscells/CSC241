@@ -101,7 +101,7 @@ public class Room{
    public void notifyAnimals(){
 
       for(int i = 0; i < num_creatures; i++){
-         creatures[i].notify(state);
+         creatures[i].notifyAnimal(state);
       }
 
    }
@@ -113,7 +113,8 @@ public class Room{
    public String toString(){
 
       String names = "Room " + name + "\n";
-      names += "----------\n";
+      names += "Description: " + description + "\n";
+      names += "State: " + state + "\n";
       for(int i = 0; i < num_creatures; i++){
          names += " - " + creatures[i].toString() + "\n";
       }
