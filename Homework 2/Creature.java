@@ -4,8 +4,9 @@ public class Creature{
    private String description;
    private Room room;
 
-   public Creature (String n, String d){
+   Creature (String n, String d){
 
+      super();
       name = n;
       description = d;
 
@@ -94,7 +95,7 @@ public class Creature{
 
    public String toString(){
 
-      return name;
+      return name + ", " + description;
 
    }
 

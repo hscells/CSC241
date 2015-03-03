@@ -2,7 +2,7 @@ public class PC extends Creature{
 
    private int respect = 40;
 
-   public PC(String n, String d){
+   PC(String n, String d){
 
       super(n,d);
 
