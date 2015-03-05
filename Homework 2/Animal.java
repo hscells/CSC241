@@ -6,4 +6,8 @@ public class Animal extends Creature{
 
    }
 
+   public void notifyCreature(String s){
+      
+   }
+
 }

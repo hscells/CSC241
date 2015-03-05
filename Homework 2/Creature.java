@@ -1,4 +1,4 @@
-public class Creature{
+abstract class Creature{
 
    private String name;
    private String description;
@@ -87,11 +87,7 @@ public class Creature{
     * needs to be implemented which it will do.
     * @param s A state
     */
-   public void notifyAnimal(String s){
-
-      // act upon the state change
-
-   }
+   abstract void notifyCreature(String s);
 
    public String toString(){
 

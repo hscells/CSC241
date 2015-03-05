@@ -101,7 +101,7 @@ public class Room{
    public void notifyAnimals(){
 
       for(int i = 0; i < num_creatures; i++){
-         creatures[i].notifyAnimal(state);
+         creatures[i].notifyCreature(state);
       }
 
    }

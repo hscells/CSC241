@@ -6,4 +6,8 @@ public class NPC extends Creature{
 
    }
 
+   public void notifyCreature(String s){
+
+   }
+
 }
