@@ -183,7 +183,7 @@ public class Room{
       names += "State: " + state + "\n";
       for (int i = 0; i < num_creatures; i++){
 
-         names += " - " + creatures[i].toString() + "\n";
+         names += " - (" + creatures[i].getClass().getName() + ") " + creatures[i].toString() + "\n";
 
       }
       for (int i = 0; i < 4; i++){
