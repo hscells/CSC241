@@ -76,6 +76,28 @@ public class Room{
    }
 
    /**
+    * Adds a room to the Room
+    * @param  A room reference
+    * @param  Direction inside the room
+    */
+   public void addRoom(Room room, int direction){
+
+      rooms[direction] = room;
+
+   }
+
+   /**
+    * Gets a room from a direction
+    * @param  direction A NESW int direction
+    * @return           a room
+    */
+   public Room getRoom(int direction){
+
+      return rooms[direction];
+
+   }
+
+   /**
     * Sets the state of the Room
     * @param s State of the room
     */
@@ -95,14 +117,58 @@ public class Room{
 
    }
 
+   public void setDescription(String desc){
+
+      description = desc;
+
+   }
+
+   public String getDescription(){
+
+      return description;
+
+   }
+
    /**
     * Notify all animals in the room of a state change
     */
    public void notifyAnimals(){
 
       for(int i = 0; i < num_creatures; i++){
+
          creatures[i].notifyCreature(state);
+
       }
+
+   }
+
+
+   /**
+    * name
+    * @return returns only the name of the room
+    */
+   public String name(){
+
+      return name;
+
+   }
+
+   private String coerceDirection(int direction){
+
+      switch(direction){
+
+         case 0:
+            return "North";
+         case 1:
+            return "East";
+         case 2:
+            return "South";
+         case 3:
+            return "West";
+
+      }
+
+      return "????";
 
    }
 
@@ -115,8 +181,19 @@ public class Room{
       String names = "Room " + name + "\n";
       names += "Description: " + description + "\n";
       names += "State: " + state + "\n";
-      for(int i = 0; i < num_creatures; i++){
+      for (int i = 0; i < num_creatures; i++){
+
          names += " - " + creatures[i].toString() + "\n";
+
+      }
+      for (int i = 0; i < 4; i++){
+
+         if(rooms[i] != null){
+
+            names += "Direction " + coerceDirection(i) + ": " + rooms[i].name() + "\n";
+
+         }
+
       }
       return names;
 
