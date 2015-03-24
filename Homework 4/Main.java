@@ -11,7 +11,7 @@ public class Main {
 
       Scanner input = new Scanner(System.in);
       System.out.print("Enter an xml file for input: ");
-      String input_file = input.next();
+      String s = input.next();
 
       SAXParserFactory factory = SAXParserFactory.newInstance();
       SAXParser saxParser = factory.newSAXParser();
@@ -21,11 +21,11 @@ public class Main {
       // load in the file for reading and parse it
       try {
 
-         saxParser.parse(input_file,results);
+         saxParser.parse(s,results);
 
       } catch (IOException e) {
 
-         System.out.println("The specified file (" + input_file + ") does not exist.");
+         System.out.println("The specified file (" + s + ") does not exist.");
          System.exit(0);
 
       }
@@ -42,30 +42,9 @@ public class Main {
       }
 
       // allow the user to query the rooms
-      System.out.println("Type `q` to quit.");
+      //System.out.println("Type `q` to quit.");
       Boolean finished = false;
-      while (!finished){
-
-         System.out.print("Enter a room: ");
-         input_file = input.next();
-
-         if (rooms.containsKey(input_file)){
-
-            System.out.println(rooms.get(input_file).toString());
-
-         } else {
-
-            System.out.println("Room does not exist.");
-
-         }
-
-         if (input_file.equals("q")){
-
-            finished = true;
-
-         }
-
-      }
+      while (!results.getPlayer().play(input));
 
   }
 
