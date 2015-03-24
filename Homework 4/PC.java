@@ -1,10 +1,33 @@
+import java.util.Scanner;
+
 public class PC extends Creature{
 
    private int respect = 40;
+   private Room room;
 
-   PC(String n, String d){
+   public boolean play(Scanner s){
 
-      super(n,d);
+      if (s.equals("help")){
+
+         System.out.println("This is not helpful");
+         return true;
+
+      } else if (s.equals("look")){
+
+         System.out.println(room.toString());
+         return true;
+
+      } else {
+
+         return false;
+
+      }
+
+   }
+
+   public void setRoom(Room r){
+
+      room = r;
 
    }
 
@@ -29,7 +52,13 @@ public class PC extends Creature{
    }
 
    public void notifyCreature(String s){
-      
+
+   }
+
+   PC(String n, String d){
+
+      super(n,d);
+
    }
 
 }
