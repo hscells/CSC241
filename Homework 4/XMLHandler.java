@@ -13,10 +13,17 @@ public class XMLHandler extends DefaultHandler {
 
    private HashMap<String, Room> rooms = new HashMap<String, Room>();
    private String current_room;
+   private PC player;
 
    public HashMap<String, Room> getRooms(){
 
       return rooms;
+
+   }
+
+   public PC getPlayer(){
+
+      return player;
 
    }
 
@@ -116,7 +123,10 @@ public class XMLHandler extends DefaultHandler {
       } else if (qName.equals("PC")){
 
          // or we are looking at an animal and we just add it to the current room
-         rooms.get(current_room).addCreature(new PC(attributes.getValue("name"), attributes.getValue("description")));
+         PC pc = new PC(attributes.getValue("name"), attributes.getValue("description"));
+         rooms.get(current_room).addCreature(pc);
+         pc.setRoom(rooms.get(current_room));
+         player = pc;
 
       }
 
