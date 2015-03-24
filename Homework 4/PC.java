@@ -3,12 +3,12 @@ import java.util.Scanner;
 public class PC extends Creature{
 
    private int respect = 40;
-   private Room room;
 
    public boolean play(Scanner s){
 
       String input = s.next();
       input = input.toLowerCase();
+      Room room = getRoom();
 
       if (input.equals("help")){
 
@@ -23,31 +23,33 @@ public class PC extends Creature{
       } else if (input.equals("clean")){
 
          System.out.println("I am cleaning the room");
+         room.clean();
          return true;
 
       } else if (input.equals("dirty")){
 
          System.out.println("I am messing up the room");
+         room.dirty();
          return true;
 
       } else if (input.equals("north")){
 
-         System.out.println("I move north");
+         tryToMove(0);
          return true;
 
       } else if (input.equals("east")){
 
-         System.out.println("I move east");
+         tryToMove(1);
          return true;
 
       } else if (input.equals("south")){
 
-         System.out.println("I move south");
+         tryToMove(2);
          return true;
 
       } else if (input.equals("west")){
 
-         System.out.println("I move west");
+         tryToMove(3);
          return true;
 
       } else if (input.equals("quit")){
@@ -55,15 +57,28 @@ public class PC extends Creature{
          System.out.println("Bye!");
          return false;
 
-      }
+      } else {
 
-      return false;
+         System.out.println("I don't know how to " + input);
+         return true;
+
+      }
 
    }
 
-   public void setRoom(Room r){
+   public void tryToMove(int direction){
 
-      room = r;
+      Room room = getRoom();
+      if (room.getRoom(direction) != null){
+
+         moveRoom(room.getRoom(direction));
+         System.out.println("I move to the " + room.getRoom(direction).name() + " room");
+
+      } else {
+
+         System.out.println("I can't move in that direction.");
+
+      }
 
    }
 
