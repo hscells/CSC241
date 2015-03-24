@@ -1,12 +1,12 @@
 public class NPC extends Creature{
 
-   NPC(String n, String d){
-
-      super(n,d);
+   public void notifyCreature(String s){
 
    }
 
-   public void notifyCreature(String s){
+   NPC(String n, String d){
+
+      super(n,d);
 
    }
 
