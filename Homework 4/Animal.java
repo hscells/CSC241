@@ -6,8 +6,14 @@ public class Animal extends Creature{
 
    }
 
-   public void notifyCreature(String s){
-      
+   public void notifyCreature(){
+
+      if(getRoom().getState().equals("dirty")){
+
+         
+
+      }
+
    }
 
 }

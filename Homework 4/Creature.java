@@ -3,12 +3,25 @@ abstract class Creature{
    private String name;
    private String description;
    private Room room;
+   private String state;
 
    Creature (String n, String d){
 
       super();
       name = n;
       description = d;
+
+   }
+
+   public void setState(String s){
+
+      state = s;
+
+   }
+
+   public String getState(){
+
+      return state;
 
    }
 
@@ -87,7 +100,7 @@ abstract class Creature{
     * needs to be implemented which it will do.
     * @param s A state
     */
-   abstract void notifyCreature(String s);
+   abstract void notifyCreature();
 
    public String toString(){
 
