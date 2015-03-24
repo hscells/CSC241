@@ -100,6 +100,11 @@ public class Room{
          return false;
 
       }
+      if (num_creatures < 1){
+
+         num_creatures = 0;
+
+      }
       creatures[index] = creatures[num_creatures-1];
       creatures[num_creatures-1] = null;
       num_creatures--;
@@ -174,6 +179,12 @@ public class Room{
 
    }
 
+
+   public int getNumberOfCreatures(){
+
+      return num_creatures;
+
+   }
 
    /**
     * name
