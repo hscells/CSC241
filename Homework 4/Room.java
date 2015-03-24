@@ -20,6 +20,34 @@ public class Room{
 
    }
 
+   public void clean(){
+
+      if(state.equals("dirty")){
+
+         state = "half-dirty";
+
+      } else if (state.equals("half-dirty")){
+
+         state = "clean";
+
+      }
+
+   }
+
+   public void dirty(){
+
+      if(state.equals("clean")){
+
+         state = "half-dirty";
+
+      } else if (state.equals("half-dirty")){
+
+         state = "dirty";
+
+      }
+
+   }
+
    /**
     * Adds a creature to the Room
     * @param  c A creature
