@@ -32,6 +32,8 @@ public class Room{
 
       }
 
+      notifyAnimals();
+
    }
 
    public void dirty(){
@@ -45,6 +47,8 @@ public class Room{
          state = "dirty";
 
       }
+
+      notifyAnimals();
 
    }
 
@@ -164,7 +168,7 @@ public class Room{
 
       for(int i = 0; i < num_creatures; i++){
 
-         creatures[i].notifyCreature(state);
+         creatures[i].notifyCreature();
 
       }
 
