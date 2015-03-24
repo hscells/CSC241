@@ -109,9 +109,7 @@ public class PC extends Creature{
 
    }
 
-   public void notifyCreature(String s){
-
-   }
+   public void notifyCreature(){}
 
    PC(String n, String d){
 
