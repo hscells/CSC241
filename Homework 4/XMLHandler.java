@@ -113,12 +113,16 @@ public class XMLHandler extends DefaultHandler {
 
          // otherwise we are looking at either an NPC, and we just add it to the
          // current room
-         rooms.get(current_room).addCreature(new NPC(attributes.getValue("name"), attributes.getValue("description")));
+         NPC npc = new NPC(attributes.getValue("name"), attributes.getValue("description"));
+         rooms.get(current_room).addCreature(npc);
+         npc.setState("dirty");
 
       } else if (qName.equals("animal")){
 
          // or we are looking at an animal and we just add it to the current room
-         rooms.get(current_room).addCreature(new Animal(attributes.getValue("name"), attributes.getValue("description")));
+         Animal animal = new Animal(attributes.getValue("name"), attributes.getValue("description"));
+         rooms.get(current_room).addCreature(animal);
+         animal.setState("clean");
 
       } else if (qName.equals("PC")){
 
