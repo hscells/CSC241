@@ -4,6 +4,7 @@ before_script:
    javac *.java
 script:
    java Main
+after_script:
    input.xml
    clean
    north
