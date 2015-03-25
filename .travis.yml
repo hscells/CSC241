@@ -5,19 +5,3 @@ before_script:
 script:
    cd Homework\ 4/
    java Main
-   input.xml
-   clean
-   north
-   dirty
-   south
-   south
-   south
-   south
-   clean
-   clean
-   clean
-   clean
-   west
-   look
-   help
-   quit
