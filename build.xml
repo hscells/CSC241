@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<project name="CSC241" default="info">
+
+   <target name="info">
+      <echo>CSC241 Homeworks</echo>
+   </target>
+
+</project>

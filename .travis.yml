@@ -2,7 +2,6 @@ language: java
 before_script:
    - cd Homework\ 4/
    - javac *.java
-script:
-   - Homework\ 4/java Main
+   - java Main
    - input.xml
    - quit
