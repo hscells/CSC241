@@ -3,8 +3,8 @@ before_script:
    cd Homework\ 4/
    javac *.java
 script:
+   cd Homework\ 4/
    java Main
-after_script:
    input.xml
    clean
    north
