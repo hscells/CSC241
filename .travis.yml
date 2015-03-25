@@ -1,1 +1,22 @@
 language: java
+before_script:
+   cd Homework\ 4/
+   javac *.java
+script:
+   java Main
+   input.xml
+   clean
+   north
+   dirty
+   south
+   south
+   south
+   south
+   clean
+   clean
+   clean
+   clean
+   west
+   look
+   help
+   quit
