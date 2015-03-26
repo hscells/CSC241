@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<project name="CSC241" default="info">
+<project name="CSC241" default="test">
 
-   <target name="info">
+   <target name="test">
       <echo>CSC241 Homeworks</echo>
    </target>
 
