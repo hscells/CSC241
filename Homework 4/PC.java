@@ -4,6 +4,11 @@ public class PC extends Creature{
 
    private int respect = 40;
 
+   /**
+    * The main play method, which implements the commands present
+    * @param  s Scanner to the input
+    * @return   true if program should continue, false if not
+    */
    public boolean play(Scanner s){
 
       String input = s.next();
@@ -73,6 +78,10 @@ public class PC extends Creature{
 
    }
 
+   /**
+    * Try to attempt to move to another room
+    * @param direction numerical direction
+    */
    public void tryToMove(int direction){
 
       Room room = getRoom();

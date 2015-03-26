@@ -20,6 +20,9 @@ public class Room{
 
    }
 
+   /**
+    * clean the room by one state
+    */
    public void clean(){
 
       if(state.equals("dirty")){
@@ -36,6 +39,9 @@ public class Room{
 
    }
 
+   /**
+    * dirty the room by one state
+    */
    public void dirty(){
 
       if(state.equals("clean")){
@@ -154,12 +160,20 @@ public class Room{
 
    }
 
+   /**
+    * Sets the description of the room
+    * @param desc description
+    */
    public void setDescription(String desc){
 
       description = desc;
 
    }
 
+   /**
+    * Get the description of the room
+    * @return description
+    */
    public String getDescription(){
 
       return description;
@@ -179,7 +193,10 @@ public class Room{
 
    }
 
-
+   /**
+    * return the total number of creatures currently in the room
+    * @return # of creatures
+    */
    public int getNumberOfCreatures(){
 
       return num_creatures;
@@ -196,6 +213,11 @@ public class Room{
 
    }
 
+   /**
+    * represent the numerical direction as a string
+    * @param  direction number of direction
+    * @return           a string representation of the direction
+    */
    private String coerceDirection(int direction){
 
       switch(direction){
