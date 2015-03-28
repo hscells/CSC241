@@ -39,16 +39,24 @@ abstract class Creature{
     * moves creature from one room to another
     * @param r The room to move to
     */
-   public void moveRoom(Room r){
+   public boolean moveRoom(Room r){
 
       if (room == null){
 
          System.out.println("This creature has no room.");
+         return false;
 
       } else {
 
-         room.removeCreature(this);
-         r.addCreature(this);
+         if (r.getNumberOfCreatures() < 10){
+
+            room.removeCreature(this);
+            r.addCreature(this);
+            return true;
+
+         }
+
+         return false;
 
       }
 
@@ -101,6 +109,36 @@ abstract class Creature{
     * @param s A state
     */
    abstract void notifyCreature();
+
+   public String name(){
+
+      return name;
+
+   }
+
+   public boolean allRoomsFull(){
+
+      int full_rooms = 0;
+      for (int i = 0; i < 4; i++){
+
+         if (getRoom().getRoom(i) != null && getRoom().getRoom(i).getNumberOfCreatures() == 10){
+
+            full_rooms++;
+
+         }
+
+      }
+
+      return (full_rooms == 4)? true : false;
+
+   }
+
+   public void drillThroughRoof(){
+
+      System.out.println(name + " drills through the roof as it has no place to go.");
+      getRoom().removeCreature(this);
+
+   }
 
    public String toString(){
 
