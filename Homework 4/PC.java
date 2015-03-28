@@ -15,6 +15,8 @@ public class PC extends Creature{
       input = input.toLowerCase();
       Room room = getRoom();
 
+      determineOutcome();
+
       if (input.equals("help")){
 
          System.out.println("Available commands:");
@@ -79,6 +81,37 @@ public class PC extends Creature{
    }
 
    /**
+    * moves creature from one room to another
+    * @param r The room to move to
+    */
+   @Override
+   public boolean moveRoom(Room r){
+
+      Room room = getRoom();
+      if (room == null){
+
+         System.out.println("The player has no room.");
+         return false;
+
+      } else {
+
+         if (r.getNumberOfCreatures() < 10){
+
+            room.removeCreature(this);
+            r.addCreature(this);
+            room.setPlayer(null);
+            r.setPlayer(this);
+            return true;
+
+         }
+
+         return false;
+
+      }
+
+   }
+
+   /**
     * Try to attempt to move to another room
     * @param direction numerical direction
     */
@@ -105,6 +138,7 @@ public class PC extends Creature{
 
    }
 
+
    /**
     * Gets the respect value for the PC
     * @return A respect value
@@ -112,6 +146,38 @@ public class PC extends Creature{
    public int getRespect(){
 
       return respect;
+
+   }
+
+   public void increaseRespect(){
+
+      respect++;
+
+   }
+
+   public void decreaseRespect(){
+
+      respect--;
+
+   }
+
+   public void determineOutcome(){
+
+      if (respect <= 0){
+
+         endGame(1);
+
+      } else if (respect >= 80){
+
+         endGame(0);
+
+      }
+
+   }
+
+   public void endGame(int outcome){
+
+      System.out.println((outcome>0)? "You win!" : "You lose!");
 
    }
 
@@ -126,6 +192,8 @@ public class PC extends Creature{
    }
 
    public void notifyCreature(){}
+   public void expressGladness(){}
+   public void expressDiscontent(){}
 
    PC(String n, String d){
 
