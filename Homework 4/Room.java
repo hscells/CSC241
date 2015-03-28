@@ -7,6 +7,8 @@ public class Room{
    private Creature[] creatures = new Creature[10];
    private int num_creatures = 0;
 
+   private PC player;
+
    private String state = "clean";
 
    // 0 - N
@@ -189,6 +191,19 @@ public class Room{
 
    }
 
+   public PC getPlayer(){
+
+      return player;
+
+   }
+
+   public void setPlayer(PC p){
+
+      player = p;
+
+   }
+
+
    /**
     * Notify all animals in the room of a state change
     */
@@ -216,6 +231,12 @@ public class Room{
    public int getNumberOfCreatures(){
 
       return num_creatures;
+
+   }
+
+   public Creature[] getCreatures(){
+
+      return creatures;
 
    }
 
