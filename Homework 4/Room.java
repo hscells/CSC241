@@ -183,11 +183,18 @@ public class Room{
    /**
     * Notify all animals in the room of a state change
     */
-   public void notifyAnimals(){
+   public void notifyCreatures(){
 
-      for(int i = 0; i < num_creatures; i++){
+      Creature[] creatures_tmp = new Creature[10];
+      System.arraycopy(creatures,0,creatures_tmp,0,10);
 
-         creatures[i].notifyCreature();
+      for(Creature c : creatures_tmp){
+
+         if (c != null){
+
+            c.notifyCreature();
+
+         }
 
       }
 
