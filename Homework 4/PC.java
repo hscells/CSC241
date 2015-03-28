@@ -26,6 +26,7 @@ public class PC extends Creature{
          System.out.println("east:\n\tmove east");
          System.out.println("south:\n\tmove south");
          System.out.println("west:\n\tmove west");
+         System.out.println("respect:\n\tshows your current respect level");
          System.out.println("quit/exit:\n\tterminate the program");
          return true;
 
@@ -64,6 +65,11 @@ public class PC extends Creature{
       } else if (input.equals("west")){
 
          tryToMove(3);
+         return true;
+
+      } else if (input.equals("respect")){
+
+         System.out.println("Your respect is " + respect);
          return true;
 
       } else if (input.equals("quit") || input.equals("exit")){

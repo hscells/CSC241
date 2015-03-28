@@ -2,6 +2,9 @@ import java.util.Random;
 
 public class NPC extends Creature{
 
+   /**
+    * See Animal class for comments
+    */
    public void expressGladness(){
 
       System.out.println(name() + " smiles.");

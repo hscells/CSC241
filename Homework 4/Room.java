@@ -32,6 +32,11 @@ public class Room{
    }
 
    /**
+    * I am unsure if a room is clean and then cleaning it should continue to
+    * notfify the creatures
+    */
+
+   /**
     * clean the room by one state
     */
    public void clean(){
@@ -191,12 +196,20 @@ public class Room{
 
    }
 
+   /**
+    * Gets the player within the room
+    * @return null if the player is in the room, otherwise the player
+    */
    public PC getPlayer(){
 
       return player;
 
    }
 
+   /**
+    * Sets the player in the room or not
+    * @param p null if removing, PC if adding
+    */
    public void setPlayer(PC p){
 
       player = p;
@@ -234,6 +247,9 @@ public class Room{
 
    }
 
+   /**
+    * Get the array of creatures
+    */
    public Creature[] getCreatures(){
 
       return creatures;
