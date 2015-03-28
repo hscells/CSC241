@@ -129,6 +129,7 @@ public class XMLHandler extends DefaultHandler {
          // or we are looking at an animal and we just add it to the current room
          PC pc = new PC(attributes.getValue("name"), attributes.getValue("description"));
          rooms.get(current_room).addCreature(pc);
+         rooms.get(current_room).setPlayer(pc);
          pc.setRoom(rooms.get(current_room));
          player = pc;
 
