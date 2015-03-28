@@ -87,8 +87,15 @@ public class PC extends Creature{
       Room room = getRoom();
       if (room.getRoom(direction) != null){
 
-         moveRoom(room.getRoom(direction));
-         System.out.println("I move to the " + room.getRoom(direction).name() + " room");
+         if (moveRoom(room.getRoom(direction))){
+
+            System.out.println("I move to the " + room.getRoom(direction).name() + " room");
+
+         } else {
+
+            System.out.println("I can't move to the " + room.getRoom(direction).name() + " room, it is full.");
+
+         }
 
       } else {
 
