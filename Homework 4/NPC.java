@@ -2,18 +2,41 @@ import java.util.Random;
 
 public class NPC extends Creature{
 
+   public void expressGladness(){
+
+      System.out.println(name() + " smiles.");
+      getRoom().getPlayer().increaseRespect();
+
+   }
+
+   public void expressDiscontent(){
+
+      System.out.println(name() + " grumbles.");
+      getRoom().getPlayer().decreaseRespect();
+
+   }
+
    public void notifyCreature(){
 
-      if(getRoom().getState().equals("clean")){
+      if (getRoom().getState().equals("clean")){
+
+         expressDiscontent();
 
          Random r = new Random();
          Room chosen_room = new Room();
 
-         System.out.println(allRoomsFull());
-
          if (allRoomsFull()){
 
             drillThroughRoof();
+            for (Creature c : getRoom().getCreatures()){
+
+               if (c != null){
+
+                  c.expressDiscontent();
+
+               }
+
+            }
 
          } else {
 
@@ -40,9 +63,14 @@ public class NPC extends Creature{
 
          }
 
+      } else if (getRoom().getState().equals("dirty")){
+
+         expressGladness();
+
       }
 
    }
+
 
    NPC(String n, String d){
 

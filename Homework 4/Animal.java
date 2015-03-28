@@ -2,9 +2,25 @@ import java.util.Random;
 
 public class Animal extends Creature{
 
+   public void expressGladness(){
+
+      System.out.println(name() + " licks your face.");
+      getRoom().getPlayer().increaseRespect();
+
+   }
+
+   public void expressDiscontent(){
+
+      System.out.println(name() + " growls.");
+      getRoom().getPlayer().decreaseRespect();
+
+   }
+
    public void notifyCreature(){
 
-      if(getRoom().getState().equals("dirty")){
+      if (getRoom().getState().equals("dirty")){
+
+         expressDiscontent();
 
          Random r = new Random();
          Room chosen_room = new Room();
@@ -12,6 +28,15 @@ public class Animal extends Creature{
          if (allRoomsFull()){
 
             drillThroughRoof();
+            for (Creature c : getRoom().getCreatures()){
+
+               if (c != null){
+
+                  c.expressDiscontent();
+
+               }
+
+            }
 
          } else {
 

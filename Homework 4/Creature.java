@@ -110,6 +110,10 @@ abstract class Creature{
     */
    abstract void notifyCreature();
 
+   abstract void expressGladness();
+
+   abstract void expressDiscontent();
+
    public String name(){
 
       return name;
