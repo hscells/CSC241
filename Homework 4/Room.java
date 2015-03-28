@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Room{
 
    private String name;
@@ -20,6 +22,13 @@ public class Room{
 
    }
 
+   Room(){
+
+      name = "";
+      description = "";
+
+   }
+
    /**
     * clean the room by one state
     */
@@ -35,7 +44,7 @@ public class Room{
 
       }
 
-      notifyAnimals();
+      notifyCreatures();
 
    }
 
@@ -54,7 +63,7 @@ public class Room{
 
       }
 
-      notifyAnimals();
+      notifyCreatures();
 
    }
 
