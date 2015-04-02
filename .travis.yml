@@ -3,6 +3,9 @@ before_script:
    - cd Homework\ 4/
    - javac *.java
    - cd ../
+   - git config --global user.email "harryscells@gmail.com"
+   - git config --global user.name "hscells"
+   - git config --global push.default matching
 after_script:
    - git clone https://github.com/hscells/hscells.github.io.git
    - javadoc Homework\ 4/Main.java -d hscells.github.io/CSC241/doc
