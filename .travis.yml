@@ -11,7 +11,7 @@ after_script:
 - javadoc Homework\ 4/Main.java -d hscells.github.io/CSC241/doc
 - cd hscells.github.io
 - git remote rm origin
-- git remote add origin https://hscells:55731a990df22b71720bd9c331c98c8294ceedef@github.com/username/repo.git
+- git remote add origin https://hscells:${55731a990df22b71720bd9c331c98c8294ceedef}@github.com/username/repo.git
 - git add *
 - git commit -m "updated CSC241 javadoc"
 - git push
