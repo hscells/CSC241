@@ -35,14 +35,7 @@ public class Main {
 
       // create a nice player object to contain it from the xml
       PC player = results.getPlayer();
-
-      // let the user know what rooms were loaded in
-      System.out.println("Rooms found in the input file: ");
-      for (String key : rooms.keySet()){
-
-         System.out.println("\t" + rooms.get(key).name());
-
-      }
+      player.getRoom().sortRoom();
 
       System.out.print("Type your commands here > ");
 
