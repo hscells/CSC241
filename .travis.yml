@@ -16,7 +16,7 @@ before_script:
 
 after_script:
  - git clone https://github.com/hscells/hscells.github.io.git
- - javadoc Homework\ 5/Main.java -d hscells.github.io/CSC241/doc Main.java *.java
+ - javadoc Homework\ 5/*.java -d hscells.github.io/CSC241/doc
  - cd hscells.github.io
  - git add *
  - git commit -m "updated CSC241 javadoc"
