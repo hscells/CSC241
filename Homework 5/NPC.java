@@ -67,23 +67,13 @@ public class NPC extends Creature{
    public void clean(){
 
       getRoom().clean();
-      if (getRoom().getState() == "clean"){
-
-         expressDiscontent();
-
-      }
 
    }
 
    public void dirty(){
 
       getRoom().dirty();
-      if (getRoom().getState() == "dirty"){
-
-         expressGladness();
-
-      }
-
+      
    }
 
    NPC(String n, String d){
