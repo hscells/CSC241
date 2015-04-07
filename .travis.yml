@@ -2,7 +2,7 @@ language: java
 
 env:
   global:
-     - GH_REF: github.com/hscells/CSC241.git
+     - GH_REF: github.com/hscells/hscells.github.io.git
      - GH_TOKEN: XXqxidH/NKflladdsfKNyqRhNe0fUm6zz6bxMnmEnjFo3RJIXFI4r0vLMQLRQEWnF+Aj1zmn283RN72/0MlmfZ0EsJbocVAi6D6XAUFU3Tm1eQyRNLnf+8bo0otwn5OamDLmRz/KmIVvtEC1ouo/Q1wJReUur6SzQQitO/M1zdk=
      - secure: XXqxidH/NKflladdsfKNyqRhNe0fUm6zz6bxMnmEnjFo3RJIXFI4r0vLMQLRQEWnF+Aj1zmn283RN72/0MlmfZ0EsJbocVAi6D6XAUFU3Tm1eQyRNLnf+8bo0otwn5OamDLmRz/KmIVvtEC1ouo/Q1wJReUur6SzQQitO/M1zdk=
 
@@ -20,4 +20,4 @@ after_script:
  - cd hscells.github.io
  - git add *
  - git commit -m "updated CSC241 javadoc"
- - git push --force "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
+ - git push --force "https://${GH_TOKEN}@${GH_REF}"
