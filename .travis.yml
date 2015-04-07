@@ -20,4 +20,4 @@ after_script:
  - cd hscells.github.io
  - git add *
  - git commit -m "updated CSC241 javadoc"
- - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
+ - git push --force "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
