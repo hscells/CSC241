@@ -235,6 +235,8 @@ public class Room{
 
       }
 
+      sortRoom();
+
    }
 
    /**
@@ -256,7 +258,7 @@ public class Room{
 
    }
 
-   public Creature searchCreature(String name){
+   private int searchCreature(String key, Creature[] creature_array, int l, int h){
 
       //linear search
       // for(Creature c : creatures){
@@ -274,30 +276,33 @@ public class Room{
       // return null;
 
       // binary search
-      int h = num_creatures-1;
-      int l = 0;
-      while (h >= l){
+      if (h <= l){
 
-         int m = (h + l) / 2;
-         System.out.println(name.compareTo(creatures[m].name().toLowerCase()) + ":" + m + "," + name + "," + creatures[m].name().toLowerCase());
-         if (name.toLowerCase().equals(creatures[m].name().toLowerCase())){
+         return -1;
 
-            return creatures[m];
+      }
+      int m = l + (h - l) / 2;
+      int c = creature_array[m].name().toLowerCase().compareTo(key.toLowerCase());
 
-         }
-         if (name.toLowerCase().compareTo(creatures[m].name().toLowerCase()) < 0){
+      if (c > 0){
 
-            l = m + 1;
+         return searchCreature(key,creature_array,l,m);
 
-         } else if (name.toLowerCase().compareTo(creatures[m].name().toLowerCase()) > 0){
+      } else if (c < 0){
 
-            h = m - 1;
+         return searchCreature(key,creature_array,m+1,h);
 
-         }
+      } else {
+
+         return m;
 
       }
 
-      return null;
+   }
+
+   public int searchCreature(String key){
+
+      return searchCreature(key,creatures,0,num_creatures);
 
    }
 
