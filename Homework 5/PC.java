@@ -86,11 +86,22 @@ public class PC extends Creature{
          if (input.contains(":")){
 
             String[] commands = input.split(":");
-            Creature c = getRoom().searchCreature(commands[0]);
+            int n = room.searchCreature(commands[0]);
+            Creature c;
+            if (n >= 0){
 
-            if(c==null){
+               c = room.getCreatures()[n];
+
+            } else {
 
                System.out.println("That creature is not in this room");
+               return true;
+
+            }
+
+            if (commands.length < 2){
+
+               System.out.println("You didn't issue a command.");
                return true;
 
             }
