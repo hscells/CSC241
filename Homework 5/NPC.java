@@ -3,7 +3,7 @@ import java.util.Random;
 public class NPC extends Creature{
 
    /**
-    * See Animal class for comments
+    * increase the players respect
     */
    public void expressGladness(){
 
@@ -12,6 +12,9 @@ public class NPC extends Creature{
 
    }
 
+   /**
+    * Decrease the players respect
+    */
    public void expressDiscontent(){
 
       System.out.println(name() + " grumbles.");
@@ -19,6 +22,10 @@ public class NPC extends Creature{
 
    }
 
+   /**
+    * Do a whole heap of things, commented inline (in Animal)
+    * @see Animal
+    */
    public void notifyCreature(){
 
       if (getRoom().getState().equals("clean")){
@@ -64,16 +71,23 @@ public class NPC extends Creature{
       }
 
    }
+
+   /**
+    * Clean the room
+    */
    public void clean(){
 
       getRoom().clean();
 
    }
 
+   /**
+    * Dirty the room
+    */
    public void dirty(){
 
       getRoom().dirty();
-      
+
    }
 
    NPC(String n, String d){

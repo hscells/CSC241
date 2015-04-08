@@ -19,12 +19,20 @@ abstract class Creature{
 
    }
 
+   /**
+    * Sets the state of the room
+    * @param s String state of the room
+    */
    public void setState(String s){
 
       state = s;
 
    }
 
+   /**
+    * Gets the state of the room
+    * @return the state of the room
+    */
    public String getState(){
 
       return state;
@@ -108,6 +116,11 @@ abstract class Creature{
 
    }
 
+   /**
+    * Move the creature in a specified direction, based on the same movement
+    * mechanic used in room
+    * @param direction direction of movement (0 1 2 3) -> (N E S W)
+    */
    public void moveDirection(int direction){
 
       if(!allRoomsFull()){
@@ -133,12 +146,20 @@ abstract class Creature{
 
    }
 
+   /**
+    * Gets only the name of the Creature
+    * @return the name of the creature
+    */
    public String name(){
 
       return name;
 
    }
 
+   /**
+    * Determine if all of the adjacent rooms are full or not
+    * @return True oif all the rooms are full, else False
+    */
    public boolean allRoomsFull(){
 
       int full_rooms = 0;
@@ -156,6 +177,9 @@ abstract class Creature{
 
    }
 
+   /**
+    * Force the Creature to leave the house and remove all references of it
+    */
    public void drillThroughRoof(){
 
       System.out.println(name + " drills through the roof as it has no place to go.");

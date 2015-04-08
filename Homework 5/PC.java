@@ -215,18 +215,28 @@ public class PC extends Creature{
 
    }
 
+   /**
+    * Increase the players respect
+    */
    public void increaseRespect(){
 
       respect++;
 
    }
 
+   /**
+    * Decrease the players respect
+    */
    public void decreaseRespect(){
 
       respect--;
 
    }
 
+   /**
+    * Check and see if the game is over or not
+    * @return > 0 if the game is over, 1 if the player wins, 0 if they lose
+    */
    public int determineOutcome(){
 
       if (respect <= 0){
@@ -245,6 +255,10 @@ public class PC extends Creature{
 
    }
 
+   /**
+    * Shuts the game down
+    * @param outcome The outcome of the game (1 -> win, 0 -> lose)
+    */
    public void endGame(int outcome){
 
       System.out.println((outcome>0)? "You lose!" : "You win!");

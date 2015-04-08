@@ -83,12 +83,18 @@ public class Animal extends Creature{
 
    }
 
+   /**
+    * Clean the room
+    */
    public void clean(){
 
       getRoom().clean();
 
    }
 
+   /**
+    * Dirty the room
+    */
    public void dirty(){
 
       getRoom().dirty();
