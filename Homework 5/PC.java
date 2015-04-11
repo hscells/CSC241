@@ -46,12 +46,14 @@ public class PC extends Creature{
 
          System.out.println("I tidy the room.");
          clean();
+         System.out.println("My respect is " + respect);
          return true;
 
       } else if (input.equals("dirty")){
 
          System.out.println("I mess up the room.");
          dirty();
+         System.out.println("My respect is " + respect);
          return true;
 
       } else if (input.equals("north")){
@@ -76,7 +78,7 @@ public class PC extends Creature{
 
       } else if (input.equals("respect")){
 
-         System.out.println("Your respect is " + respect);
+         System.out.println("My respect is " + respect);
          return true;
 
       } else if (input.equals("quit") || input.equals("exit")){
@@ -113,11 +115,13 @@ public class PC extends Creature{
 
                System.out.println(c.name() + " cleans the room.");
                c.clean();
+               System.out.println("My respect is " + respect);
 
             } else if (commands[1].equals("dirty")){
 
                System.out.println(c.name() + " dirties the room.");
                c.dirty();
+               System.out.println("My respect is " + respect);
 
             } else if (commands[1].equals("north")){
 
@@ -288,7 +292,7 @@ public class PC extends Creature{
       getRoom().clean();
 
    }
-   
+
    public void dirty(){
 
       getRoom().dirty();
