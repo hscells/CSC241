@@ -99,7 +99,7 @@ public class NPC extends Creature{
       if (getRoom().getState().equals("clean")){
 
          System.out.println(name() + " dirties their new room.");
-         clean();
+         dirty();
 
       }
 
