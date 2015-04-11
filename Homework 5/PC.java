@@ -275,14 +275,17 @@ public class PC extends Creature{
 
    }
 
-   public void notifyCreature(){}
-   public void expressGladness(){}
-   public void expressDiscontent(){}
+   public void notifyCreature(){};
+   public void expressGladness(){};
+   public void expressDiscontent(){};
+   public void checkRoom(){};
+
    public void clean(){
 
       getRoom().clean();
 
    }
+   
    public void dirty(){
 
       getRoom().dirty();
