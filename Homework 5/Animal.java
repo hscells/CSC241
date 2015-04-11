@@ -101,6 +101,21 @@ public class Animal extends Creature{
 
    }
 
+   /**
+    * Check to see if the room is suitable for the Animal to live in and then
+    * clean the room if it doesn't like it
+    */
+   public void checkRoom(){
+
+      if (getRoom().getState().equals("dirty")){
+
+         System.out.println(name() + " cleans their new room.");
+         clean();
+
+      }
+
+   }
+
    Animal(String n, String d){
 
       super(n,d);

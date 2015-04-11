@@ -90,6 +90,21 @@ public class NPC extends Creature{
 
    }
 
+   /**
+    * Checks to see if the room is suitable for the NPC
+    * @see Animal
+    */
+   public void checkRoom(){
+
+      if (getRoom().getState().equals("clean")){
+
+         System.out.println(name() + " dirties their new room.");
+         clean();
+
+      }
+
+   }
+
    NPC(String n, String d){
 
       super(n,d);
