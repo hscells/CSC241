@@ -8,6 +8,7 @@ abstract class Creature{
    abstract void notifyCreature();
    abstract void expressGladness();
    abstract void expressDiscontent();
+   abstract void checkRoom();
    abstract void clean();
    abstract void dirty();
 
@@ -74,6 +75,8 @@ abstract class Creature{
 
       }
 
+
+
    }
 
    /**
@@ -131,6 +134,7 @@ abstract class Creature{
 
             moveRoom(new_room);
             System.out.println(name() + " moved to the " + new_room.name() + " room.");
+            checkRoom();
 
          } else {
 
@@ -197,6 +201,26 @@ abstract class Creature{
 
    }
 
+   /**
+    * Compare one creature to another creature
+    * @param  o The creature reference
+    * @return   positive integer of location or -1 if not found
+    */
+   public int compareTo(Creature o) {
+     return name.toLowerCase().compareTo(o.name().toLowerCase());
+   }
+
+   /**
+    * Compare one creature to a string
+    * @param  o The string being searched
+    * @return   positive integer of location or -1 if not found
+    */
+   public int compareTo(String o) {
+     return name.toLowerCase().compareTo(o);
+   }
+
+
+   @Override
    public String toString(){
 
       return name + ", " + description;
