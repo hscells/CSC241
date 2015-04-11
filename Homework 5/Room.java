@@ -86,6 +86,9 @@ public class Room{
          c.setRoom(this);
          creatures[num_creatures] = c;
          num_creatures++;
+         
+         sortRoom();
+
          return true;
 
       } else{
@@ -130,6 +133,9 @@ public class Room{
       creatures[index] = creatures[num_creatures-1];
       creatures[num_creatures-1] = null;
       num_creatures--;
+
+      sortRoom();
+
       return true;
 
    }
