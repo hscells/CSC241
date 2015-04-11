@@ -130,7 +130,7 @@ abstract class Creature{
 
          Room new_room = getRoom().getRoom(direction);
 
-         if (new_room != null){
+         if (new_room != null && new_room.getNumberOfCreatures() <= 9){
 
             moveRoom(new_room);
             System.out.println(name() + " moved to the " + new_room.name() + " room.");
@@ -139,6 +139,7 @@ abstract class Creature{
          } else {
 
             System.out.println(name() + " cannot move there.");
+            expressDiscontent();
 
          }
 
