@@ -24,14 +24,17 @@ public class PC extends Creature{
       if (input.equals("help")){
 
          System.out.println("Available commands:");
-         System.out.println("help:\n\tDisplay this message");
-         System.out.println("look:\n\tTake a look at your surroundings");
-         System.out.println("north:\n\tmove north");
-         System.out.println("east:\n\tmove east");
-         System.out.println("south:\n\tmove south");
-         System.out.println("west:\n\tmove west");
-         System.out.println("respect:\n\tshows your current respect level");
-         System.out.println("quit/exit:\n\tterminate the program");
+         System.out.println("north\n\tmove north");
+         System.out.println("east\n\tmove east");
+         System.out.println("south\n\tmove south");
+         System.out.println("west\n\tmove west");
+         System.out.println("clean\n\tclean the room");
+         System.out.println("dirty\n\tdirty the room");
+         System.out.println("<animal>:<action>\n\tforces <animal> to perform an <action> above");
+         System.out.println("respect\n\tshows your current respect level");
+         System.out.println("look\n\tTake a look at your surroundings");
+         System.out.println("help\n\tDisplay this message");
+         System.out.println("quit/exit\n\tterminate the program");
          return true;
 
       } else if (input.equals("look")){
