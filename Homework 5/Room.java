@@ -258,7 +258,7 @@ public class Room{
 
    }
 
-   private int searchCreature(String key, Creature[] creature_array, int l, int h){
+   private int searchCreature(String name, Creature[] creature_array, int l, int h){
 
       //linear search
       // for(Creature c : creatures){
@@ -282,15 +282,15 @@ public class Room{
 
       }
       int m = l + (h - l) / 2;
-      int c = creature_array[m].name().toLowerCase().compareTo(key.toLowerCase());
+      int c = creature_array[m].compareTo(name);
 
       if (c > 0){
 
-         return searchCreature(key,creature_array,l,m);
+         return searchCreature(name,creature_array,l,m);
 
       } else if (c < 0){
 
-         return searchCreature(key,creature_array,m+1,h);
+         return searchCreature(name,creature_array,m+1,h);
 
       } else {
 
@@ -300,9 +300,9 @@ public class Room{
 
    }
 
-   public int searchCreature(String key){
+   public int searchCreature(String name){
 
-      return searchCreature(key,creatures,0,num_creatures);
+      return searchCreature(name,creatures,0,num_creatures);
 
    }
 
@@ -334,13 +334,13 @@ public class Room{
 
       while (i <= j){
 
-         while (c[i].name().compareTo(p.name()) < p.name().compareTo(c[i].name())){
+         while (c[i].compareTo(p) < p.compareTo(c[i])){
 
             i++;
 
          }
 
-         while (c[j].name().compareTo(p.name()) > p.name().compareTo(c[j].name())){
+         while (c[j].compareTo(p) > p.compareTo(c[j])){
 
             j--;
 
