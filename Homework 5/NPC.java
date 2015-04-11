@@ -77,6 +77,12 @@ public class NPC extends Creature{
     */
    public void clean(){
 
+      if (getRoom().getState().equals("half-dirty") || getRoom().getState().equals("clean")){
+
+         expressDiscontent();
+         expressDiscontent();
+
+      }
       getRoom().clean();
 
    }
@@ -86,6 +92,12 @@ public class NPC extends Creature{
     */
    public void dirty(){
 
+      if (getRoom().getState().equals("half-dirty") || getRoom().getState().equals("dirty")){
+
+         expressGladness();
+         expressGladness();
+
+      }
       getRoom().dirty();
 
    }

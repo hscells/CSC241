@@ -88,6 +88,12 @@ public class Animal extends Creature{
     */
    public void clean(){
 
+      if (getRoom().getState().equals("half-dirty") || getRoom().getState().equals("clean")){
+
+         expressGladness();
+         expressGladness();
+
+      }
       getRoom().clean();
 
    }
@@ -97,6 +103,12 @@ public class Animal extends Creature{
     */
    public void dirty(){
 
+      if (getRoom().getState().equals("half-dirty") || getRoom().getState().equals("dirty")){
+
+         expressDiscontent();
+         expressDiscontent();
+
+      }
       getRoom().dirty();
 
    }
