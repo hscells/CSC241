@@ -7,7 +7,7 @@ env:
      - secure: XXqxidH/NKflladdsfKNyqRhNe0fUm6zz6bxMnmEnjFo3RJIXFI4r0vLMQLRQEWnF+Aj1zmn283RN72/0MlmfZ0EsJbocVAi6D6XAUFU3Tm1eQyRNLnf+8bo0otwn5OamDLmRz/KmIVvtEC1ouo/Q1wJReUur6SzQQitO/M1zdk=
 
 before_script:
- - cd Homework\ 4/
+ - cd Homework\ 6/
  - javac *.java
  - cd ../
  - git config --global user.email "harryscells@gmail.com"

@@ -10,8 +10,9 @@ public class Main {
    public static void main(String[] a) throws Exception {
 
       Scanner input = new Scanner(System.in);
-      System.out.print("Enter an xml file for input: ");
-      String s = input.next();
+      //System.out.print("Enter an xml file for input: ");
+      //String s = input.next();
+      String s = "input.xml";
 
       SAXParserFactory factory = SAXParserFactory.newInstance();
       SAXParser saxParser = factory.newSAXParser();
@@ -36,6 +37,11 @@ public class Main {
       // create a nice player object to contain it from the xml
       PC player = results.getPlayer();
       player.getRoom().sortRoom();
+
+      player.getRoom()._creatures.prepend(new Animal("poop","a poopy butt"));
+      player.getRoom()._creatures.append(new Animal("Axe","a tree"));
+      System.out.println(player.getRoom()._creatures.get(0));
+      System.out.println(player.getRoom()._creatures.get(1));
 
       System.out.print("Type your commands here > ");
 

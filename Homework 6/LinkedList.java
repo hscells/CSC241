@@ -3,30 +3,23 @@
  * each of the rooms
  * @author Harry Scells
  */
-public class LinkedList<Creature>{
+public class LinkedList<T>{
 
-   private Node<Creature> head;
-   private Node<Creature> tail;
+   private Node<T> head;
+   private Node<T> tail;
+   private int length;
 
    LinkedList(){
 
       tail = head = null;
+      length = 0;
 
    }
 
-   LinkedList(Creature c){
+   LinkedList(T c){
 
-      tail = head = new Node<Creature>(c);
-
-   }
-
-   /**
-    * Prepend a node containing a creature to the linked list
-    * @param n A Creature reference
-    */
-   public void prepend(Creature n){
-
-      head = new Node<Creature>(n, head);
+      tail = head = new Node<T>(c);
+      length = 1;
 
    }
 
@@ -34,9 +27,67 @@ public class LinkedList<Creature>{
     * Prepend a node containing a creature to the linked list
     * @param n A Creature reference
     */
-   public void append(Creature n){
+   public void prepend(T n){
 
-      tail = tail.next = new Node<Creature>(n);
+      head = new Node<T>(n, head);
+      length++;
+
+   }
+
+   /**
+    * Prepend a node containing a creature to the linked list
+    * @param n A Creature reference
+    */
+   public void append(T n){
+
+      tail = new Node<T>(n);
+      Node<T> tmp = tail;
+
+      tail.get();
+      tail.next(n);
+      tail = tail.next();
+      length++;
+
+   }
+
+   public boolean isEmpty(){
+
+      return head == null;
+
+   }
+
+   public int length(){
+
+      return length;
+
+   }
+
+   public void insertAt(int index, T c){
+
+      Node<T> n = head;
+      for (int i = 0; n != null && i < index; n = n.next, i++);
+
+
+   }
+
+   public boolean removeAt(int index){
+
+      return false;
+
+   }
+
+   public boolean exists(Node<T> n){
+
+      for (int i = 0; n != null && i < length; n = n.next, i++);
+      return !(n == null);
+
+   }
+
+   public Node<T> get(int index){
+
+      Node<T> n = head;
+      for (int i = 0; n != null && i < index; n = n.next, i++);
+      return n;
 
    }
 
@@ -47,8 +98,7 @@ public class LinkedList<Creature>{
    private class Node<T>{
 
       private T object;
-      public Node<T> next;
-      public Node<T> prev;
+      private Node<T> next;
 
       Node(){
 
@@ -62,10 +112,10 @@ public class LinkedList<Creature>{
 
       }
 
-      Node(T p, Node<T> q){
+      Node(T o, Node<T> n){
 
-         object = p;
-         next = q;
+         object = o;
+         next = n;
 
       }
 
@@ -84,6 +134,18 @@ public class LinkedList<Creature>{
       public String toString(){
 
          return "" + object;
+
+      }
+
+      public void next(T n){
+
+         next = new Node<T>(n);
+
+      }
+
+      public Node<T> next(){
+
+         return next;
 
       }
 

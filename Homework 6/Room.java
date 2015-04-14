@@ -5,6 +5,9 @@ public class Room{
    private String name;
    private String description;
    private Creature[] creatures = new Creature[10];
+
+   public LinkedList<Creature> _creatures = new LinkedList<Creature>();
+
    private int num_creatures = 0;
 
    private PC player;
@@ -331,7 +334,7 @@ public class Room{
          return;
 
       }
-      
+
       int m = l + (h - l) / 2;
       Creature p = c[m];
 
