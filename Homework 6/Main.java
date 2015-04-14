@@ -38,10 +38,14 @@ public class Main {
       PC player = results.getPlayer();
       player.getRoom().sortRoom();
 
-      player.getRoom()._creatures.prepend(new Animal("poop","a poopy butt"));
+      //player.getRoom()._creatures.prepend(new Animal("poop","a poopy butt"));
       player.getRoom()._creatures.append(new Animal("Axe","a tree"));
+      player.getRoom()._creatures.append(new Animal("Hampster","not a cat"));
+      player.getRoom()._creatures.append(new Animal("Horse","loves carrots"));
       System.out.println(player.getRoom()._creatures.get(0));
       System.out.println(player.getRoom()._creatures.get(1));
+      System.out.println(player.getRoom()._creatures.get(2));
+      System.exit(1);
 
       System.out.print("Type your commands here > ");
 
