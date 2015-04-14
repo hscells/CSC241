@@ -16,9 +16,9 @@ public class LinkedList<T>{
 
    }
 
-   LinkedList(T c){
+   LinkedList(T o){
 
-      tail = head = new Node<T>(c);
+      tail = head = new Node<T>(o);
       length = 1;
 
    }
@@ -27,25 +27,32 @@ public class LinkedList<T>{
     * Prepend a node containing a creature to the linked list
     * @param n A Creature reference
     */
-   public void prepend(T n){
+   public void prepend(T o){
 
-      head = new Node<T>(n, head);
+      head = new Node<T>(o, head);
       length++;
 
    }
 
    /**
-    * Prepend a node containing a creature to the linked list
+    * Append a node containing a creature to the linked list
     * @param n A Creature reference
     */
-   public void append(T n){
+   public void append(T o){
 
-      tail = new Node<T>(n);
-      Node<T> tmp = tail;
+      if (tail == null){
 
-      tail.get();
-      tail.next(n);
-      tail = tail.next();
+         tail = new Node<T>(o, null, head);
+
+      } else {
+
+         Node<T> tmp = new Node<T>(o, null, tail);
+         tail.next(tmp);
+         tail = tmp;
+
+      }
+
+      head = (head == null)? tail : head;
       length++;
 
    }
@@ -99,6 +106,7 @@ public class LinkedList<T>{
 
       private T object;
       private Node<T> next;
+      private Node<T> prev;
 
       Node(){
 
@@ -116,6 +124,15 @@ public class LinkedList<T>{
 
          object = o;
          next = n;
+         prev = null;
+
+      }
+
+      Node(T o, Node<T> n, Node<T> p){
+
+         object = o;
+         next = n;
+         prev = p;
 
       }
 
@@ -137,15 +154,21 @@ public class LinkedList<T>{
 
       }
 
-      public void next(T n){
+      public void next(Node<T> n){
 
-         next = new Node<T>(n);
+         next = n;
 
       }
 
       public Node<T> next(){
 
          return next;
+
+      }
+
+      public Node<T> prev(){
+
+         return prev;
 
       }
 
