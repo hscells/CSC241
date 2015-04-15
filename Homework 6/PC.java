@@ -173,6 +173,7 @@ public class PC extends Creature{
             r.addCreature(this);
             room.setPlayer(null);
             r.setPlayer(this);
+            setRoom(r);
             return true;
 
          }
