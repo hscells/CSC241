@@ -196,9 +196,22 @@ public class LinkedList<T>{
     */
    public int getIndexOfObject(T o){
 
-      int i = 0;
-      for (Node<T> n = head; n != null && i <= length; n = n.next(), i++);
-      return (i == length)? -1 : i;
+      if (exists(o)){
+
+         int i = 0;
+         for (Node<T> n = head; n != null; n = n.next(), i++){
+
+            if (n.get() == o){
+
+               return i;
+
+            }
+
+         }
+
+      }
+
+      return -1;
 
    }
 
