@@ -221,6 +221,18 @@ public class LinkedList<T>{
 
    }
 
+   public LinkedList<T> copy(){
+
+      LinkedList<T> t = new LinkedList<T>();
+      for(Node<T> n = head; n != null; n = n.next()){
+
+         t.append(n.get());
+
+      }
+
+      return t;
+
+   }
 
    /**
     * Node data structure which the linked list refers to
