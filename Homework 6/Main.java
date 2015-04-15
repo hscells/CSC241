@@ -45,6 +45,14 @@ public class Main {
       System.out.println(player.getRoom()._creatures.get(0));
       System.out.println(player.getRoom()._creatures.get(1));
       System.out.println(player.getRoom()._creatures.get(2));
+      System.out.println(player.getRoom()._creatures.get(3));
+      System.out.println(player.getRoom()._creatures.length());
+      player.getRoom()._creatures.insertAt(9, new Animal("Kleeny", "A tissue or a closure"));
+      System.out.println(player.getRoom()._creatures.get(0));
+      System.out.println(player.getRoom()._creatures.get(1));
+      System.out.println(player.getRoom()._creatures.get(2));
+      System.out.println(player.getRoom()._creatures.get(3));
+      System.out.println(player.getRoom()._creatures.length());
       System.exit(1);
 
       System.out.print("Type your commands here > ");
