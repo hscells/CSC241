@@ -63,12 +63,22 @@ public class LinkedList<T>{
 
    }
 
+   /**
+    * The total number of nodes in the list
+    * @return the length of the list
+    */
    public int length(){
 
       return length;
 
    }
 
+   /**
+    * Insert an object o into the linked list at position index. The index must
+    * reside within the bounds of the lenth of the linked list.
+    * @param  the location which will take the place of the new object
+    * @param  the object to insert
+    */
    public void insertAt(int index, T o) throws LinkedListException{
 
       if (index == 0){
@@ -85,13 +95,8 @@ public class LinkedList<T>{
          if (n != null){
 
             Node<T> node = new Node<T>(o, n, n.prev());
-
-            if (n.prev() != null){
-
-               n.prev().next(node);
-
-            }
-
+            node.prev().next(node);
+            node.next().prev(node);
             length++;
 
          }
@@ -106,18 +111,63 @@ public class LinkedList<T>{
 
    public boolean removeAt(int index){
 
-      Node<T> n = get(index);
+      if (index == 0){
 
+         head = head.next();
+         length--;
+         return true;
+
+      } else if (index == length-1){
+
+         tail = tail.prev();
+         tail.next(null);
+         length--;
+         return true;
+
+      } else {
+
+         Node<T> n = get(index);
+         if (n != null){
+
+            n.prev().next(n.next());
+            length--;
+            return true;
+
+         }
+
+      }
+
+      return false;
 
    }
 
-   public boolean exists(Node<T> n){
+   /**
+    * Checks to see if the object o is inside the list
+    * @param  o object to search for
+    * @return   true if object is found, false if not
+    */
+   public boolean exists(T o){
 
-      for (int i = 0; n != null && i < length; n = n.next(), i++);
-      return !(n == null);
+      Node<T> n = head;
+      for (int i = 0; n != null && i < length; n = n.next(), i++){
+
+         if (n.get() == o){
+
+            return true;
+
+         }
+
+      }
+
+      return false;
 
    }
 
+   /**
+    * Gets the object at given index
+    * @param  index the position in the list to look for
+    * @return       an object
+    */
    public Node<T> get(int index){
 
       Node<T> n = head;
