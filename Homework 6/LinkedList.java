@@ -91,7 +91,7 @@ public class LinkedList<T>{
 
       } else if (index < length){
 
-         Node<T> n = get(index);
+         Node<T> n = getNodeAtIndex(index);
          if (n != null){
 
             Node<T> node = new Node<T>(o, n, n.prev());
@@ -126,7 +126,7 @@ public class LinkedList<T>{
 
       } else {
 
-         Node<T> n = get(index);
+         Node<T> n = getNodeAtIndex(index);
          if (n != null){
 
             n.prev().next(n.next());
@@ -164,17 +164,50 @@ public class LinkedList<T>{
    }
 
    /**
-    * Gets the object at given index
+    * Gets the node at given index
     * @param  index the position in the list to look for
-    * @return       an object
+    * @return       a node
     */
-   public Node<T> get(int index){
+   private Node<T> getNodeAtIndex(int index){
 
       Node<T> n = head;
       for (int i = 0; n != null && i < index; n = n.next(), i++);
       return n;
 
    }
+
+   /**
+    * Gets the object at given index
+    * @param  index the position in the list to look for
+    * @return       an object
+    */
+   public T getObjectAtIndex(int index){
+
+      Node<T> n = head;
+      for (int i = 0; n != null && i < index; n = n.next(), i++);
+      return n.get();
+
+   }
+
+   /**
+    * Gets the object at given index
+    * @param  index the position in the list to look for
+    * @return       an object
+    */
+   public int getIndexOfObject(T o){
+
+      int i = 0;
+      for (Node<T> n = head; n != null && i <= length; n = n.next(), i++);
+      return (i == length)? -1 : i;
+
+   }
+
+   public void swap(int i, int j){
+
+
+
+   }
+
 
    /**
     * Node data structure which the linked list refers to

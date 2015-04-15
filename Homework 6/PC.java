@@ -95,7 +95,7 @@ public class PC extends Creature{
             Creature c;
             if (n >= 0){
 
-               c = room.getCreatures()[n];
+               c = room.getCreatures().getObjectAtIndex(n);
 
             } else {
 

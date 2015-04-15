@@ -190,14 +190,15 @@ abstract class Creature{
       System.out.println(name + " drills through the roof as it has no place to go.");
       expressDiscontent();
       getRoom().removeCreature(this);
-      for (Creature c : getRoom().getCreatures()){
+      for (int i = 0; i < 10; i++){
+
+         Creature c = getRoom().getCreatures().getObjectAtIndex(i);
 
          if (c != null){
 
             c.expressDiscontent();
 
          }
-
       }
 
    }

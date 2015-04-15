@@ -4,9 +4,7 @@ public class Room{
 
    private String name;
    private String description;
-   private Creature[] creatures = new Creature[10];
-
-   public LinkedList<Creature> _creatures = new LinkedList<Creature>();
+   private LinkedList<Creature> creatures = new LinkedList<Creature>();
 
    private int num_creatures = 0;
 
@@ -84,14 +82,9 @@ public class Room{
     */
    public Boolean addCreature(Creature c){
 
-      if (num_creatures < 10){
+      if (creatures.length() < 10){
 
-         c.setRoom(this);
-         creatures[num_creatures] = c;
-         num_creatures++;
-
-         sortRoom();
-
+         creatures.append(c);
          return true;
 
       } else{
@@ -110,36 +103,13 @@ public class Room{
     */
    public Boolean removeCreature(Creature c){
 
-      int index = -1;
-      for (int i = 0; i < num_creatures; i++){
+      if (creatures.removeAt(creatures.getIndexOfObject(c))){
 
-            if (creatures[i] == c){
-
-            index = i;
-            break;
-
-         }
+         return true;
 
       }
 
-      if (index == -1){
-
-         System.out.println("This creature is not in this room.");
-         return false;
-
-      }
-      if (num_creatures < 1){
-
-         num_creatures = 0;
-
-      }
-      creatures[index] = creatures[num_creatures-1];
-      creatures[num_creatures-1] = null;
-      num_creatures--;
-
-      sortRoom();
-
-      return true;
+      return false;
 
    }
 
@@ -261,13 +231,13 @@ public class Room{
    /**
     * Get the array of creatures
     */
-   public Creature[] getCreatures(){
+   public LinkedList<Creature> getCreatures(){
 
       return creatures;
 
    }
 
-   private int searchCreature(String name, Creature[] creature_array, int l, int h){
+   private int searchCreature(String name, LinkedList<Creature> creature_array, int l, int h){
 
       //linear search
       // for(Creature c : creatures){
@@ -291,7 +261,7 @@ public class Room{
 
       }
       int m = l + (h - l) / 2;
-      int c = creature_array[m].compareTo(name);
+      int c = creature_array.getObjectAtIndex(m).compareTo(name);
 
       if (c > 0){
 
@@ -321,9 +291,9 @@ public class Room{
     * @param  The low value
     * @param  The high value
     */
-   private void sortRoom(Creature[] c, int l, int h){
+   private void sortRoom(LinkedList<Creature> c, int l, int h){
 
-      if(c == null || c.length == 0){
+      if(c.isEmpty()){
 
          return;
 
@@ -336,20 +306,20 @@ public class Room{
       }
 
       int m = l + (h - l) / 2;
-      Creature p = c[m];
+      Creature p = c.getObjectAtIndex(m);
 
       int i = l;
       int j = h;
 
       while (i <= j){
 
-         while (c[i].compareTo(p) < p.compareTo(c[i])){
+         while (c.getObjectAtIndex(i).compareTo(p) < p.compareTo(c.getObjectAtIndex(i))){
 
             i++;
 
          }
 
-         while (c[j].compareTo(p) > p.compareTo(c[j])){
+         while (c.getObjectAtIndex(j).compareTo(p) > p.compareTo(c.getObjectAtIndex(j))){
 
             j--;
 
@@ -357,9 +327,7 @@ public class Room{
 
          if (i <= j){
 
-            Creature tmp = c[i];
-            c[i] = c[j];
-            c[j] = tmp;
+            c.swap(i,j);
             i++;
             j--;
 
@@ -433,9 +401,9 @@ public class Room{
       String names = "Room " + name + "\n";
       names += "Description: " + description + "\n";
       names += "State: " + state + "\n";
-      for (int i = 0; i < num_creatures; i++){
+      for (int i = 0; i < creatures.length(); i++){
 
-         names += " - (" + creatures[i].getClass().getName() + ") " + creatures[i].toString() + "\n";
+         names += " - (" + creatures.getObjectAtIndex(i).getClass().getName() + ") " + creatures.getObjectAtIndex(i).toString() + "\n";
 
       }
       for (int i = 0; i < 4; i++){
