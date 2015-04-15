@@ -6,8 +6,6 @@ public class Room{
    private String description;
    private LinkedList<Creature> creatures = new LinkedList<Creature>();
 
-   private int num_creatures = 0;
-
    private PC player;
 
    private String state = "clean";
@@ -85,6 +83,7 @@ public class Room{
       if (creatures.length() < 10){
 
          creatures.append(c);
+         c.setRoom(this);
          return true;
 
       } else{
@@ -103,6 +102,7 @@ public class Room{
     */
    public Boolean removeCreature(Creature c){
 
+      System.out.println(creatures.getIndexOfObject(c));
       if (creatures.removeAt(creatures.getIndexOfObject(c))){
 
          return true;
@@ -201,10 +201,11 @@ public class Room{
     */
    public void notifyCreatures(){
 
-      Creature[] creatures_tmp = new Creature[10];
-      System.arraycopy(creatures,0,creatures_tmp,0,10);
+      LinkedList<Creature> tmp = creatures.copy();
 
-      for(Creature c : creatures_tmp){
+      for(int i = 0; i < tmp.length()-1; i++){
+
+         Creature c = tmp.getObjectAtIndex(i);
 
          if (c != null){
 
@@ -224,7 +225,7 @@ public class Room{
     */
    public int getNumberOfCreatures(){
 
-      return num_creatures;
+      return creatures.length();
 
    }
 
@@ -281,7 +282,7 @@ public class Room{
 
    public int searchCreature(String name){
 
-      return searchCreature(name,creatures,0,num_creatures);
+      return searchCreature(name,creatures,0,creatures.length());
 
    }
 
@@ -354,7 +355,7 @@ public class Room{
     */
    public void sortRoom(){
 
-      sortRoom(creatures,0,num_creatures-1);
+      sortRoom(creatures,0,creatures.length()-1);
 
    }
 
