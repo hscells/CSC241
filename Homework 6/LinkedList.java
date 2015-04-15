@@ -69,23 +69,51 @@ public class LinkedList<T>{
 
    }
 
-   public void insertAt(int index, T c){
+   public void insertAt(int index, T o) throws LinkedListException{
 
-      Node<T> n = head;
-      for (int i = 0; n != null && i < index; n = n.next, i++);
+      if (index == 0){
 
+         prepend(o);
+
+      } else if (index == length){
+
+         append(o);
+
+      } else if (index < length){
+
+         Node<T> n = get(index);
+         if (n != null){
+
+            Node<T> node = new Node<T>(o, n, n.prev());
+
+            if (n.prev() != null){
+
+               n.prev().next(node);
+
+            }
+
+            length++;
+
+         }
+
+      } else {
+
+         throw new LinkedListException("Index out of bounds");
+
+      }
 
    }
 
    public boolean removeAt(int index){
 
-      return false;
+      Node<T> n = get(index);
+
 
    }
 
    public boolean exists(Node<T> n){
 
-      for (int i = 0; n != null && i < length; n = n.next, i++);
+      for (int i = 0; n != null && i < length; n = n.next(), i++);
       return !(n == null);
 
    }
@@ -93,7 +121,7 @@ public class LinkedList<T>{
    public Node<T> get(int index){
 
       Node<T> n = head;
-      for (int i = 0; n != null && i < index; n = n.next, i++);
+      for (int i = 0; n != null && i < index; n = n.next(), i++);
       return n;
 
    }
@@ -163,6 +191,12 @@ public class LinkedList<T>{
       public Node<T> next(){
 
          return next;
+
+      }
+
+      public void prev(Node<T> n){
+
+         prev = n;
 
       }
 
