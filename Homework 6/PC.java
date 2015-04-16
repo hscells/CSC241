@@ -195,7 +195,6 @@ public class PC extends Creature{
 
          if (moveRoom(room.getRoom(direction))){
 
-            room.getRoom(direction).sortRoom();
             System.out.println("I move to the " + room.getRoom(direction).name() + " room");
 
          } else {
