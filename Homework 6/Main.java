@@ -12,7 +12,7 @@ public class Main {
       Scanner input = new Scanner(System.in);
       System.out.print("Enter an xml file for input: ");
       String s = input.next();
-      //String s = "input.xml";
+      // String s = "input.xml";
 
       SAXParserFactory factory = SAXParserFactory.newInstance();
       SAXParser saxParser = factory.newSAXParser();
@@ -36,7 +36,6 @@ public class Main {
 
       // create a nice player object to contain it from the xml
       PC player = results.getPlayer();
-      player.getRoom().sortRoom();
 
       System.out.print("Type your commands here > ");
 
