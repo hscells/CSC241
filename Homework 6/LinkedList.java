@@ -3,10 +3,10 @@
  * each of the rooms
  * @author Harry Scells
  */
-public class LinkedList<T>{
+public class LinkedList<E>{
 
-   private Node<T> head;
-   private Node<T> tail;
+   private Node<E> head;
+   private Node<E> tail;
    private int length;
 
    LinkedList(){
@@ -16,9 +16,9 @@ public class LinkedList<T>{
 
    }
 
-   LinkedList(T o){
+   LinkedList(E o){
 
-      tail = head = new Node<T>(o);
+      tail = head = new Node<E>(o);
       length = 1;
 
    }
@@ -27,9 +27,14 @@ public class LinkedList<T>{
     * Prepend a node containing a creature to the linked list
     * @param n A Creature reference
     */
-   public void prepend(T o){
+   public void prepend(E o){
 
-      head = new Node<T>(o, head);
+      head = new Node<E>(o, head);
+      if (tail == null){
+
+         tail = head;
+
+      }
       length++;
 
    }
@@ -38,21 +43,19 @@ public class LinkedList<T>{
     * Append a node containing a creature to the linked list
     * @param n A Creature reference
     */
-   public void append(T o){
+   public void append(E o){
 
-      if (tail == null){
+      if (isEmpty()){
 
-         tail = new Node<T>(o, null, head);
+         head = tail = new Node<E>(o, null, head);
 
       } else {
 
-         Node<T> tmp = new Node<T>(o, null, tail);
+         Node<E> tmp = new Node<E>(o, null, tail);
          tail.next(tmp);
          tail = tmp;
 
       }
-
-      head = (head == null)? tail : head;
       length++;
 
    }
@@ -79,7 +82,7 @@ public class LinkedList<T>{
     * @param  the location which will take the place of the new object
     * @param  the object to insert
     */
-   public void insertAt(int index, T o) throws LinkedListException{
+   public void insertAt(int index, E o) throws LinkedListException{
 
       if (index == 0){
 
@@ -91,10 +94,10 @@ public class LinkedList<T>{
 
       } else if (index < length){
 
-         Node<T> n = getNodeAtIndex(index);
+         Node<E> n = getNodeAtIndex(index);
          if (n != null){
 
-            Node<T> node = new Node<T>(o, n, n.prev());
+            Node<E> node = new Node<E>(o, n, n.prev());
             node.prev().next(node);
             node.next().prev(node);
             length++;
@@ -126,7 +129,7 @@ public class LinkedList<T>{
 
       } else {
 
-         Node<T> n = getNodeAtIndex(index);
+         Node<E> n = getNodeAtIndex(index);
          if (n != null){
 
             n.prev().next(n.next());
@@ -146,9 +149,9 @@ public class LinkedList<T>{
     * @param  o object to search for
     * @return   true if object is found, false if not
     */
-   public boolean exists(T o){
+   public boolean exists(E o){
 
-      Node<T> n = head;
+      Node<E> n = head;
       for (int i = 0; n != null && i < length; n = n.next(), i++){
 
          if (n.get() == o){
@@ -168,9 +171,9 @@ public class LinkedList<T>{
     * @param  index the position in the list to look for
     * @return       a node
     */
-   private Node<T> getNodeAtIndex(int index){
+   private Node<E> getNodeAtIndex(int index){
 
-      Node<T> n = head;
+      Node<E> n = head;
       for (int i = 0; n != null && i < index; n = n.next(), i++);
       return n;
 
@@ -181,11 +184,11 @@ public class LinkedList<T>{
     * @param  index the position in the list to look for
     * @return       an object
     */
-   public T getObjectAtIndex(int index){
+   public E getObjectAtIndex(int index){
 
-      Node<T> n = head;
+      Node<E> n = head;
       for (int i = 0; n != null && i < index; n = n.next(), i++);
-      return n.get();
+      return (n == null)? null : n.get();
 
    }
 
@@ -194,12 +197,12 @@ public class LinkedList<T>{
     * @param  index the position in the list to look for
     * @return       an object
     */
-   public int getIndexOfObject(T o){
+   public int getIndexOfObject(E o){
 
       if (exists(o)){
 
          int i = 0;
-         for (Node<T> n = head; n != null; n = n.next(), i++){
+         for (Node<E> n = head; n != null; n = n.next(), i++){
 
             if (n.get() == o){
 
@@ -221,10 +224,10 @@ public class LinkedList<T>{
 
    }
 
-   public LinkedList<T> copy(){
+   public LinkedList<E> copy(){
 
-      LinkedList<T> t = new LinkedList<T>();
-      for(Node<T> n = head; n != null; n = n.next()){
+      LinkedList<E> t = new LinkedList<E>();
+      for(Node<E> n = head; n != null; n = n.next()){
 
          t.append(n.get());
 
