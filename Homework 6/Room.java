@@ -102,7 +102,6 @@ public class Room{
     */
    public Boolean removeCreature(Creature c){
 
-      System.out.println(creatures.getIndexOfObject(c));
       if (creatures.removeAt(creatures.getIndexOfObject(c))){
 
          return true;
@@ -231,6 +230,7 @@ public class Room{
 
    /**
     * Get the array of creatures
+    * @Deprecated
     */
    public LinkedList<Creature> getCreatures(){
 
@@ -238,22 +238,8 @@ public class Room{
 
    }
 
+   @Deprecated
    private int searchCreature(String name, LinkedList<Creature> creature_array, int l, int h){
-
-      //linear search
-      // for(Creature c : creatures){
-      //
-      //
-      //    if(c != null && c.name().toLowerCase().equals(name.toLowerCase())){
-      //
-      //       System.out.println(name);
-      //       return c;
-      //
-      //    }
-      //
-      // }
-      //
-      // return null;
 
       // binary search
       if (h <= l){
@@ -282,7 +268,20 @@ public class Room{
 
    public int searchCreature(String name){
 
-      return searchCreature(name,creatures,0,creatures.length());
+      // linear search
+      for(int i = 0; i < creatures.length(); i++){
+
+         Creature c = creatures.getObjectAtIndex(i);
+
+         if(c != null && c.name().toLowerCase().equals(name.toLowerCase())){
+
+            return i;
+
+         }
+
+      }
+
+      return -1;
 
    }
 
@@ -291,7 +290,9 @@ public class Room{
     * @param  The list of creatures
     * @param  The low value
     * @param  The high value
+    * @Deprecated
     */
+   @Deprecated
    private void sortRoom(LinkedList<Creature> c, int l, int h){
 
       if(c.isEmpty()){
@@ -352,7 +353,9 @@ public class Room{
 
    /**
     * Override of the private sortRoom method which fills in the blanks for you
+    * @Deprecated
     */
+   @Deprecated
    public void sortRoom(){
 
       sortRoom(creatures,0,creatures.length()-1);
