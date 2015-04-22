@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 /**
  * Linked List implementation which stores the reference to the creatures in
  * each of the rooms
@@ -106,7 +108,7 @@ public class LinkedList<E>{
 
       } else {
 
-         throw new LinkedListException("Index out of bounds");
+         throw new LinkedListException("Index out of bounds: " + index);
 
       }
 
@@ -224,6 +226,10 @@ public class LinkedList<E>{
 
    }
 
+   /**
+    * Make a copy of the data structure
+    * @return the linked list you are copying
+    */
    public LinkedList<E> copy(){
 
       LinkedList<E> t = new LinkedList<E>();
