@@ -102,13 +102,7 @@ public class Room{
     */
    public Boolean removeCreature(Creature c){
 
-      if (creatures.removeAt(creatures.getIndexOfObject(c))){
-
-         return true;
-
-      }
-
-      return false;
+      return creatures.removeAt(creatures.getIndexOfObject(c));
 
    }
 
