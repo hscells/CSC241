@@ -237,6 +237,58 @@ public class LinkedList<E>{
 
    }
 
+   public Iterator<E> iterator(){
+
+      return new LinkedListIterator<E>(this);
+
+   }
+
+   /**
+    * Iterator class for better loop iteration
+    * @author Harry Scells
+    */
+   public class LinkedListIterator<E> implements Iterator<E>{
+
+      private Node<E> current;
+      private LinkedList<E> l;
+
+      LinkedListIterator(LinkedList<E> l){
+
+         current = null;
+         this.l = l;
+
+      }
+
+      public boolean hasNext(){
+
+         if (current == null){
+
+            return !l.isEmpty();
+
+         }
+         return current.next != null;
+
+      }
+
+      public E next(){
+
+         if (current == null){
+
+            current = l.head;
+
+         } else {
+
+            current = current.next();
+
+         }
+         return current.get();
+
+      }
+
+      public void remove(){}
+
+   }
+
    /**
     * Node data structure which the linked list refers to
     * @author Harry Scells
