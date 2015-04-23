@@ -255,7 +255,7 @@ public class LinkedList<E>{
     */
    public class LinkedListIterator<E> implements Iterator<E>{
 
-      private Node<E> current;
+      private LinkedList<E>.Node<E> current;
       private LinkedList<E> l;
 
       LinkedListIterator(LinkedList<E> l){
