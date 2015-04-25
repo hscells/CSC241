@@ -2,10 +2,11 @@ import java.util.Iterator;
 
 /**
  * Linked List implementation which stores the reference to the creatures in
- * each of the rooms
+ * each of the rooms. Must implement Iterable to allow the linked list to be
+ * iterted over in a for each loop
  * @author Harry Scells
  */
-public class LinkedList<E>{
+public class LinkedList<E> implements Iterable<E>{
 
    private Node<E> head;
    private Node<E> tail;
@@ -111,6 +112,12 @@ public class LinkedList<E>{
          throw new LinkedListException("Index out of bounds: " + index);
 
       }
+
+   }
+
+   public boolean remove(E object){
+
+      return removeAt(getIndexOfObject(object));
 
    }
 
@@ -220,12 +227,6 @@ public class LinkedList<E>{
 
    }
 
-   public void swap(int i, int j){
-
-
-
-   }
-
    /**
     * Make a copy of the data structure
     * @return the linked list you are copying
@@ -243,6 +244,28 @@ public class LinkedList<E>{
 
    }
 
+   /**
+    * Make a shallow copy of the data structure, only copying the reference
+    * to each <E> rather than create a deep copy of each <E>
+    * @return A copy of the linked list
+    */
+   public LinkedList<E> shallowCopy(){
+
+      LinkedList<E> t = new LinkedList<E>();
+      t = this;
+      return t;
+
+   }
+
+   /**
+    * Not enough time to implement this method
+    */
+   public void swap(int a, int b){}
+
+   /**
+    * Allow the linked list to be iterable
+    * @return A new iterable object which can be used in for each loops
+    */
    public Iterator<E> iterator(){
 
       return new LinkedListIterator<E>(this);
@@ -253,7 +276,7 @@ public class LinkedList<E>{
     * Iterator class for better loop iteration
     * @author Harry Scells
     */
-   public class LinkedListIterator<E> implements Iterator<E>{
+   private class LinkedListIterator<E> implements Iterator<E>{
 
       private LinkedList<E>.Node<E> current;
       private LinkedList<E> l;
