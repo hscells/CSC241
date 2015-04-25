@@ -122,7 +122,7 @@ public class Animal extends Creature{
       if (getRoom().getState().equals("dirty")){
 
          System.out.println(name() + " cleans their new room.");
-         clean();
+         getRoom().clean();
 
       }
 
