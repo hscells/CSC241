@@ -194,11 +194,9 @@ public class Room{
     */
    public void notifyCreatures(){
 
-      LinkedList<Creature> tmp = creatures.copy();
+      LinkedList<Creature> tmp = creatures.shallowCopy();
 
-      for(int i = 0; i < tmp.length()-1; i++){
-
-         Creature c = tmp.getObjectAtIndex(i);
+      for(Creature c : tmp){
 
          if (c != null){
 
@@ -207,8 +205,6 @@ public class Room{
          }
 
       }
-
-      sortRoom();
 
    }
 
@@ -262,16 +258,17 @@ public class Room{
 
    public int searchCreature(String name){
 
+      int location = 0;
       // linear search
-      for(int i = 0; i < creatures.length(); i++){
-
-         Creature c = creatures.getObjectAtIndex(i);
+      for(Creature c : creatures){
 
          if(c != null && c.name().toLowerCase().equals(name.toLowerCase())){
 
-            return i;
+            return location;
 
          }
+
+         location++;
 
       }
 
@@ -399,9 +396,9 @@ public class Room{
       String names = "Room " + name + "\n";
       names += "Description: " + description + "\n";
       names += "State: " + state + "\n";
-      for (int i = 0; i < creatures.length(); i++){
+      for (Creature c : creatures){
 
-         names += " - (" + creatures.getObjectAtIndex(i).getClass().getName() + ") " + creatures.getObjectAtIndex(i).toString() + "\n";
+         names += " - (" + c.getClass().getName() + ") " + c.toString() + "\n";
 
       }
       for (int i = 0; i < 4; i++){
